@@ -15,9 +15,18 @@ class StringResponse {
 @ApiClass(name: 'sample', version: 'v1')
 class SampleApi {
   @ApiMethod(method: 'GET', path: 'hello/{name}')
-  Future<StringResponse> hello(String name) async {
+  StringResponse hello(String name) {
     if (names.contains(name) == false) {
-      throw new RpcError(101, 'Name not found', '$name doesn\'t exists');
+      throw new RpcError(HttpStatus.NOT_FOUND, 'Name not found', '$name doesn\'t exists');
+    }
+
+    return new StringResponse('Hello, $name');
+  }
+
+  @ApiMethod(method: 'GET', path: 'helloasync/{name}')
+  Future<StringResponse> helloAsync(String name) async {
+    if (names.contains(name) == false) {
+      throw new RpcError(HttpStatus.NOT_IMPLEMENTED, 'Name not found', '$name doesn\'t exists');
     }
 
     return new StringResponse('Hello, $name');
