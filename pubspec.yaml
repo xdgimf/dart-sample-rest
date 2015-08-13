@@ -1,0 +1,10 @@
+name: 'redstone_shelf_rpc'
+version: 0.0.1
+description: A sample RESTful server using redstone and shelf rpc
+author: xdgimf <xdgimf@gmail.com>
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  redstone: '>=0.6.0-beta.1 <0.7.0'
+  shelf_rpc: '>=0.0.3+2 <0.1.0'
+  shelf_static: '>=0.2.3 <0.3.0'
