@@ -21,6 +21,9 @@ main() {
   // Setup handler
   app.setShelfHandler(apiHandler);
 
+  // Disable default error page
+  app.showErrorPage = false;
+
   // Setup Redstone
   app.setupConsoleLog();
   app.redstoneSetUp();
